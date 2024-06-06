@@ -1,0 +1,40 @@
+main{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+.cell{
+    height: 50px;
+    width: 50px;
+    background-color: aqua;
+    border: 1px solid black;
+}
+
+.board{
+    display: grid;
+    grid-template-columns: repeat(8, auto);
+    grid-template-rows: repeat(8, auto);
+    width: min-content;
+    max-width: min-content;
+}
+
+.black{
+    background-color: black;
+}
+
+.white{
+    background-color: white;
+}
+
+.cell p{
+    color: tomato;
+}
+
+.youCanMoveHereAttack{
+    background-color: red;
+}
+
+.youCanMoveHere{
+    background-color: green;
+}
