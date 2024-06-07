@@ -122,7 +122,7 @@ function kingMove (chessBoard, row, col, castle) {
     const newRow = row + rowDirection
     const newCol = col + colDirection
 
-    if (isOnBoard(newRow, newCol)) {
+    if (whatColorIsAttackingThatCell(chessBoard, row, col, newRow, newCol)) {
       posiblesMoves.push([newRow, newCol])
     }
   })
@@ -146,7 +146,7 @@ function castling (chessBoard, row, col) {
     if (chessBoard[row][rookCol][3] === false) {
       let newCol = col + direction
 
-      while (chessBoard[row][newCol][0] === '') {
+      while (chessBoard[row][newCol][0] === '' && whatColorIsAttackingThatCell(chessBoard, row, col, row, newCol)) {
         newCol += direction
       }
 
@@ -156,4 +156,19 @@ function castling (chessBoard, row, col) {
     }
   })
   return castlingMoves
+}
+
+function whatColorIsAttackingThatCell (chessBoard, row, col, cellRow, cellCol) {
+  const pieceColor = chessBoard[row][col][0][0]
+
+  if (!isOnBoard(cellRow, cellCol)) {
+    return false
+  }
+
+  for (const piece of chessBoard[cellRow][cellCol][2]) {
+    if (piece[0] !== pieceColor) {
+      return false
+    }
+  }
+  return true
 }

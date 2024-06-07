@@ -1,15 +1,11 @@
 import { calculateMoves } from './calculateMoves'
-import { deletePastPossiblesMoves } from './movePiece'
 
 export function RenderPosibleMoves (coordsPiece, chessBoard, setChessBoard, pieceSelected, coordsPieceToMove, turn, historyMoves) {
   const newBoard = [...chessBoard]
 
   if (pieceSelected.current !== '') {
-    deletePastPossiblesMoves(newBoard)
-    console.log([1, 1] === [1, 1
-    ])
-    if (pieceSelected.current === newBoard[coordsPiece[0]][coordsPiece[1]][0] && coordsPiece === coordsPieceToMove.current) {
-      console.log('unselect')
+    deletePastPossiblesPieceMoves(newBoard, true)
+    if (pieceSelected.current === newBoard[coordsPiece[0]][coordsPiece[1]][0] && compareCoords(coordsPiece, coordsPieceToMove.current)) {
       pieceSelected.current = ''
       setChessBoard(newBoard)
       return
@@ -30,5 +26,17 @@ function updateBoardWithPossibleMoves (chessBoard, coordsPieceToMove) {
   posiblesMoves.forEach(move => {
     const [row, column] = move
     chessBoard[row][column][1] = true
+  })
+}
+
+function compareCoords (coords1, coords2) {
+  return coords1[0] === coords2[0] && coords1[1] === coords2[1]
+}
+
+function deletePastPossiblesPieceMoves (chessBoard) {
+  chessBoard.forEach(row => {
+    row.forEach(cell => {
+      cell[1] = false
+    })
   })
 }
