@@ -6,8 +6,9 @@ export function movePiece (destinyCoords, chessBoard, setChessBoard, coordsPiece
 
   if (castling) {
     moveCastleRook(rookColumn, destinyCoords, newBoard, turn.current)
-    console.log('newBoard', newBoard)
   }
+
+  coronation(newBoard, destinyCoords, turn, pieceSelected)
 
   const sourceCoords = coordsPieceToMove.current
   const pieceToMove = chessBoard[sourceCoords[0]][sourceCoords[1]][0]
@@ -95,4 +96,12 @@ function moveCastleRook (rookColumn, destinyCoords, chessBoard, turn) {
   chessBoard[row][column][0] = ''
   chessBoard[row][column][3] = true
   chessBoard[row][newColumn][0] = `${turn}R`
+}
+
+function coronation (chessBoard, destinyCoords, turn, pieceSelected) {
+  const coronationRow = turn.current === 'W' ? 0 : 7
+
+  if (pieceSelected.current[1] === 'P' && destinyCoords[0] === coronationRow) {
+    console.log('CORONATION')
+  }
 }
