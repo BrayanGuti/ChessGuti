@@ -1,0 +1,12 @@
+.Chess-Board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    width: min-content;
+    margin: 20px auto; /* Agregado margen para separar del borde de la página */
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.5); /* Sombra más suave y prominente */
+    border-radius: 12px; /* Bordes ligeramente más redondeados */
+    padding: 1rem; /* Aumentado el padding para mayor separación */
+    background-color: #444; /* Fondo similar a un tablero de madera */
+    border: 3px solid #00FFC0; /* Borde más grueso y de color marrón oscuro */
+}

@@ -1,6 +1,5 @@
-import { calculateMoves } from './calculateMoves'
+import { calculateMoves } from '../calculateMoves'
 
-// Constantes para las propiedades de las celdas
 const PIECE = 0
 const IS_UNDER_ATTACK_OR_YOU_CAN_MOVE_HERE = 1
 

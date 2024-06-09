@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import classNames from 'classnames'
-import '../App.css'
+import './Cell.css'
 
 export default function Cell (props) {
   const {

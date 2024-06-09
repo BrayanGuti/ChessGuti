@@ -1,4 +1,4 @@
-import { calulateFutureMoves } from './calculateMoves'
+import { calulateFutureMoves } from '../calculateMoves'
 
 export function movePiece (destinyCoords, chessBoard, setChessBoard, coordsPieceToMove, pieceSelected, turn) {
   const newBoard = [...chessBoard]

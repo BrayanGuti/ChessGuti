@@ -1,0 +1,29 @@
+.cell {
+    height: 80px;
+    width: 80px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .black {
+    background-color: #222; 
+  }
+  
+  .white {
+    background-color: #DDD;
+  }
+
+  
+  .cell img {
+    max-width: 90%;
+    height: auto;
+  }
+  
+  .youCanMoveHereAttack {
+    background-color: #FF5733A1; /* Un tono de rojo anaranjado */
+}
+
+.youCanMoveHere {
+    background-color: #33FF57A1; /* Un tono de verde */
+}
