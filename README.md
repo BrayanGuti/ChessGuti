@@ -24,23 +24,38 @@ This project aims to create a functional and engaging chess game. The primary fo
 
 ## 🛠️ Getting Started
 
-To get started with this project, follow these steps:
+To begin with this project, follow these steps:
 
 1. **Clone the repository**:
    ```sh
    git clone https://github.com/BrayanGuti/ChessGuti
    cd ChessGuti
    ```
+
 2. **Install dependencies**:
    ```sh
    npm install
    ```
+
 3. **Run the development server**:
    ```sh
    npm run dev
    ```
-4. **Open your browser** and navigate to `http://localhost:5173/` to see the chess game in action. 🖥️
 
+4. **See the chess game in action**:
+   After running the previous command, you will see something like the following: 
+   ```sh
+   > chessguti@0.0.0 dev
+   > vite
+
+   VITE v5.2.12  ready in 966 ms
+
+   ➜  Local:   http://localhost:5173/
+   ➜  Network: use --host to expose
+   ➜  press h + enter to show help
+   ```
+  Press `Ctrl + click` on http://localhost to open the project in your browser.
+   
 ## 🤝 Contributing
 
 We welcome contributions from the community! If you have suggestions, bug reports, or enhancements, feel free to open an issue or submit a pull request. Please ensure your code follows the project's coding standards and is well-documented. ✍️
