@@ -15,12 +15,27 @@ export default function Board () {
   // Shows the possible moves of the piece on the board
 
   function callRenderPosibleMoves (coordsPiece) {
-    RenderPosibleMoves(coordsPiece, chessBoard, setChessBoard, pieceSelected, coordsPieceToMove, turn, historyMoves)
+    RenderPosibleMoves(
+      coordsPiece,
+      chessBoard,
+      setChessBoard,
+      pieceSelected,
+      coordsPieceToMove,
+      turn,
+      historyMoves
+    )
   }
 
   // Makes the move of the piece on the board
   function callMoveToDestinyCoords (destinyCoords) {
-    movePiece(destinyCoords, chessBoard, setChessBoard, coordsPieceToMove, pieceSelected, turn)
+    movePiece(
+      destinyCoords,
+      chessBoard,
+      setChessBoard,
+      coordsPieceToMove,
+      pieceSelected,
+      turn
+    )
   }
 
   return (

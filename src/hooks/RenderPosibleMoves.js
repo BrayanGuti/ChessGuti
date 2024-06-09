@@ -1,20 +1,24 @@
 import { calculateMoves } from './calculateMoves'
 
+// Constantes para las propiedades de las celdas
+const PIECE = 0
+const IS_UNDER_ATTACK_OR_YOU_CAN_MOVE_HERE = 1
+
 export function RenderPosibleMoves (coordsPiece, chessBoard, setChessBoard, pieceSelected, coordsPieceToMove, turn, historyMoves) {
   const newBoard = [...chessBoard]
 
   if (pieceSelected.current !== '') {
-    deletePastPossiblesPieceMoves(newBoard, true)
-    if (pieceSelected.current === newBoard[coordsPiece[0]][coordsPiece[1]][0] && compareCoords(coordsPiece, coordsPieceToMove.current)) {
+    deletePastPossiblesPieceMoves(newBoard)
+    if (pieceSelected.current === newBoard[coordsPiece[0]][coordsPiece[1]][PIECE] && compareCoords(coordsPiece, coordsPieceToMove.current)) {
       pieceSelected.current = ''
       setChessBoard(newBoard)
       return
     }
   }
 
-  if (newBoard[coordsPiece[0]][coordsPiece[1]][0][0] !== turn.current) return
+  if (newBoard[coordsPiece[0]][coordsPiece[1]][PIECE][0] !== turn.current) return
 
-  pieceSelected.current = newBoard[coordsPiece[0]][coordsPiece[1]][0]
+  pieceSelected.current = newBoard[coordsPiece[0]][coordsPiece[1]][PIECE]
   updateBoardWithPossibleMoves(newBoard, coordsPiece)
   coordsPieceToMove.current = coordsPiece
   setChessBoard(newBoard)
@@ -25,7 +29,7 @@ function updateBoardWithPossibleMoves (chessBoard, coordsPieceToMove) {
 
   posiblesMoves.forEach(move => {
     const [row, column] = move
-    chessBoard[row][column][1] = true
+    chessBoard[row][column][IS_UNDER_ATTACK_OR_YOU_CAN_MOVE_HERE] = true
   })
 }
 
@@ -36,7 +40,7 @@ function compareCoords (coords1, coords2) {
 function deletePastPossiblesPieceMoves (chessBoard) {
   chessBoard.forEach(row => {
     row.forEach(cell => {
-      cell[1] = false
+      cell[IS_UNDER_ATTACK_OR_YOU_CAN_MOVE_HERE] = false
     })
   })
 }

@@ -1,26 +1,33 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import classNames from 'classnames'
 import '../App.css'
 
-export default function Cell ({ setDestinyCoords, setCoordsPieceToMove, youCanMoveHere, hasPiece, cellColor, cellCoords }) {
-  const handleClick = () => {
+export default function Cell (props) {
+  const {
+    setDestinyCoords,
+    setCoordsPieceToMove,
+    youCanMoveHere,
+    hasPiece,
+    cellColor,
+    cellCoords
+  } = props
+
+  const handleClick = useCallback(() => {
     if (youCanMoveHere) {
       setDestinyCoords(cellCoords)
     } else if (hasPiece) {
       setCoordsPieceToMove(cellCoords)
     }
-  }
+  }, [youCanMoveHere, hasPiece, setDestinyCoords, setCoordsPieceToMove, cellCoords])
 
-  let cellClass = ''
-
-  if (youCanMoveHere === true) {
-    cellClass = hasPiece === '' ? 'youCanMoveHere' : 'youCanMoveHereAttack'
-  }
+  const cellClass = classNames({
+    youCanMoveHere: youCanMoveHere && !hasPiece,
+    youCanMoveHereAttack: youCanMoveHere && hasPiece
+  })
 
   return (
     <div onClick={handleClick} className={`cell ${cellColor} ${cellClass}`}>
-      {
-        hasPiece !== '' && <img src={`./Pieces/${hasPiece}.svg`} alt={hasPiece} />
-      }
+      {hasPiece && <img src={`./Pieces/${hasPiece}.svg`} alt={hasPiece} />}
     </div>
   )
 }
