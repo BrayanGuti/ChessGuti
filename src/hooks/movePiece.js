@@ -39,7 +39,7 @@ function updateCellsUnderAttack (newBoard) {
   cellsUnderAttack.forEach(([piece, ...cells]) => {
     cells.forEach(([row, col]) => {
       if (newBoard[row][col][0][1] === 'K' && newBoard[row][col][0][0] !== piece[0]) {
-        console.log('CHECK')
+        console.log('CHECK') // CHECKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
       }
       newBoard[row][col][2].push(piece)
     })
